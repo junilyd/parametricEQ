@@ -46,11 +46,11 @@
     .jpg,.mps,.jpeg,.jbig2,.jb2,.JPG,.JPEG,.JBIG2,.JB2}
 % Create graphics using PGF/TikZ
 \usepackage{tikz,pgfplots}
-\usetikzlibrary{matrix,backgrounds}
+% \usetikzlibrary{matrix,backgrounds}
 \usetikzlibrary{external}
-\tikzexternalize[
-  mode=convert with system call,% or graphics if exists, no graphics, only graphics
-  figure list=true]
+% \tikzexternalize[
+  % mode=convert with system call,% or graphics if exists, no graphics, only graphics
+  % figure list=true]
 % \tikzexternaldisable
 \tikzexternalize[prefix=img/tikz/]
 \tikzset{
