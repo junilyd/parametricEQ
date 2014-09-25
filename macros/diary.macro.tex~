@@ -1,0 +1,39 @@
+\newcommand{\tags}[1]{%
+  \marginpar{\tiny Tag(s):\newline
+      \renewcommand*{\do}[1]{%
+        {\color{aaublue}%
+          \csname tag##1\endcsname\ (##1)%
+          \sindex[tag]{{\csname tag##1\endcsname\ (##1)}}}\newline}% How to process each item
+      \docsvlist{#1}% Process list
+  }
+}
+
+\newcommand{\authors}[1]{%
+  \marginpar{\tiny Author(s):\newline
+      \renewcommand*{\do}[1]{%
+        {\color{aaublue}%
+          ##1\ (##1)%
+          \sindex[author]{##1}}\newline}% How to process each item
+      \docsvlist{#1}% Process list
+  }
+}
+
+\newcommand{\files}[1]{%
+  \marginpar{\tiny File(s):\newline
+      \renewcommand*{\do}[1]{%
+        {\color{aaublue}%
+          {\tt ##1}%
+          \sindex[file]{##1@{\tt ##1}}}\newline}% How to process each item
+      \docsvlist{#1}% Process list
+  }
+}
+
+\newcommand{\persons}[1]{%
+  \marginpar{\tiny Person(s):\newline
+      \renewcommand*{\do}[1]{%
+        {\color{aaublue}%
+          ##1%
+          \sindex[person]{##1}}\newline}% How to process each item
+      \docsvlist{#1}% Process list
+  }
+}

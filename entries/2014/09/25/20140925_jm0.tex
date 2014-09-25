@@ -1,0 +1,27 @@
+% mainfile: ../../../../master.tex
+The project is planned to be carried out as a mini-project.
+A mini project is required as an evaluation subject for discussion at the examination.
+A parametric equalizer is normally the first step after the gain control in an audio-mixer channel.
+Therefore, it is of great interest to design such a technology.
+This is being planned to design a digital equalizer and it would be awesome to implement it as a VST-plugin in C++.
+\subsection{Starting the Equalizer Project}
+The starting point is building the EQ from the book by Orfanidis called Introduction to Signal Processing(reference will probably not be put in this worksheet).
+The basic function on $z$-domain is described as
+\begin{equation}
+    H(z) = \frac{ \frac{G0-GB}{1+\beta} -2 \frac{G0\cos{\omega_0} }{1+\beta} z^{-1} + \frac{G0-GB}{1+\beta}z^{-2}} { 1 - 2\frac{\cos{\omega_0}}{1+\beta}z^{-1} + \frac{1-\beta}{1+\beta}z^{-2}  }
+\end{equation}
+where
+\begin{itemize}
+\item $\beta = \sqrt{\frac{GB^2-G0^2}{G^2-GB^2}\tan{\frac{\Delta\omega}{2}}}$
+\item $GB$ is the gain at the cut off frequency.
+\item $G0$ is the reference gain, which usually is prefered to be 1 for unity gain.
+\item $G$ is the gain factor, which can be used for both boost and cut.
+\item The tangent part is derived through the bilinear transform.
+\end{itemize}
+% The part of the label after the colon must match the file name. Otherwise,
+% conditional compilation based on task labels does NOT work.
+\label{task:20140925_jm0}
+\tags{starting}
+\authors{jm}
+%\files{}
+%\persons{}

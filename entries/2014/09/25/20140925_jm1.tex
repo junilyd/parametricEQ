@@ -1,0 +1,18 @@
+% mainfile: ../../../../master.tex
+\subsection{The first test in MATLAB}
+In this test the first MATLAB implementation is designed and tested. 
+It is implemented with $GB$ as the arithmetic mean. This is done to handle the zero-crossing problems. 
+\begin{equation}
+    GB = \frac{G+G0}{2}    
+\end{equation}
+Figure \ref{fig:matlab_test_first_gain} shows what goes on when varying the gain $G$ from $-20$ to $20\texttt{dB}$
+\input img/matlab_test_first_gain.tex
+It is needed to change the gain definiton of $GB$, in order to get the same characteristic in both boost and cut region.
+The obvious approach is to implement a sign change for boost and cut regions.
+% The part of the label after the colon must match the file name. Otherwise,
+% conditional compilation based on task labels does NOT work.
+\label{task:20140925_jm1}
+\tags{matlab,test}
+\authors{jm}
+%\files{}
+%\persons{}

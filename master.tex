@@ -1,0 +1,28 @@
+\input{preamble.tex}
+\input{macros/diary.macro.tex}
+\input{buildFiles/tagDictionary.tex}
+\input{buildFiles/authorDictionary.tex}
+
+\title{Work Diary on Equalizer Project}
+\author{Jacob Møller\\Aalborg University\\Sound Processing}
+\date{Last compiled: \today}
+
+\begin{document}
+  \pagestyle{empty}
+  \pagenumbering{roman} %use arabic page numbering in the mainmatter
+  \maketitle
+  \cleardoublepage
+  \pdfbookmark[0]{Contents}{label:contents}
+  \tableofcontents
+  \cleardoublepage
+  \pdfbookmark[0]{Todos}{label:todos}
+  \listoftodos
+  \cleardoublepage
+  \pagestyle{fancy}
+  %mainmatter
+  \pagenumbering{arabic} %use arabic page numbering in the mainmatter
+  \input{buildFiles/taskList.tex}
+  
+  \printbibliography[heading=bibintoc]
+  \printindex*
+\end{document}
