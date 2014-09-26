@@ -1,0 +1,65 @@
+% mainfile: ../../../../master.tex
+\subsection{MSPR - First Exercises with MGC}
+\subsubsection{Quiz mm1}
+\label{sub:Quiz_mm1}
+The quiz is answered here.
+\begin{itemize}
+    \item What is Classification?
+    \item What is a Prior?
+    \item What quantities must be known for the quadratic and linear classifiers to work, based on the multivariate normal distribution?
+    \item Under what condition is it possible to classify classes with the same mean?
+    \item Do the decision boundaries for the quadratic and linear classifiers look alike?
+\end{itemize}
+%
+\subsubsection{Classification}
+\label{sec:Classification}
+Classification is the act of assigning a class label to an object, a physical process or an event. For automated sorting we ahve to classify the objects by measuring the objects by mmeasuring some properties of the individual objects.\\ 
+Measurement vectors are processed to reveal information for the task. Models are made by describing the object.i
+In some cases it is not trivial to define relevant classes.
+It is like sorting parameters in to classes.
+License Plate characters are easy. Sorting tomatoes into three different classes are not so easy.
+For sorting electronic parts, the classes are ``IC's'', ``resistors'' and so on. \\
+% \newline
+% The desired output is the label of the true character.
+\subsubsection{Detection - A Special Case of Classification}
+Here, only two class labels are available; yes and no.
+\subsubsection{Identification - A Special Case of Classification}
+e.g. Fingerprint recognition or face recognition. 
+Usually by using a large database.
+
+
+
+\subsection{How to Design a pattern classifier}
+Bayesian Theoretic Framework is a solid base for pattern classification. We have both a prior and a posterior.
+The starting point is a stochastic experiment defined by a set $\Omega = \{\omega_1,\cdots\omega_k\}$. We assume the classes are mutually exclusive.
+\subsection{Prior and Posterior}
+\label{sub:Prior_and_Posterior}
+\subsubsection{Prior}
+\label{sub:Prior}
+The probability $P(\omega_k)$ of having a class $\omega_k$ is called the \textit{prior probability}. It represents the knowledge we have about the object before measurements. With $K$ different classes that is,
+\begin{equation}
+    \sum_1^K P({\omega_k}) = 1
+\end{equation}
+\newline
+We produce a measurement vector called $\vecz$, with dimension $N$. These vary, even within the same class, due to noise and i.e. eccentricities of bolts are not fixed size and randomness due to other noise. Therefore, we have the \textit{conditional probability function} of $\vecz$, denoted as $p(\vecz|\omega_k)$.\\
+It is the density of $\vecz$ coming from a known class $\omega_k$\newline
+If $\vecz$ comes from an object with an unknown class, it is denoted by $p(\vecz)$.
+\begin{equation}
+    p(\vecz) = \sum_1^K p(\vecz|\omega_k)P(\omega_k)
+\end{equation}
+The decision function $\hat\omega(.)$ maps the measurements space onte the set of possible classes.
+That is
+$\mathbb{R}^2 \leftarrow \Omega$
+\info{fix mathbb as a macro for Real R}
+\change{Continue from example 2.2 pp. 17.}
+
+
+
+
+
+
+\label{task:20140926_jm1}
+\tags{mspr,courses,exercises}
+\authors{jm}
+%\files{}
+%\persons{}
