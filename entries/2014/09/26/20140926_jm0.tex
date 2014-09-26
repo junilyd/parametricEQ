@@ -1,0 +1,145 @@
+% mainfile: ../../../../master.tex
+\subsection{Old Quiz From 2013}
+\label{sec:Old Exercises from 2014}
+    These exercises has been answered during summer holiday. The first part is a quiz.
+    \begin{itemize}
+        \item What is a linear system, and what is meant by its solution?
+    \end{itemize}
+    A system of linear equations is a collection of one or more linear equations involving the same variables. 
+    which is not squared or "similar multiplied" (lines or hyper planes).
+    The solution set is all possible solutions which maps the system 'A' to the desired vector 'b'. (x=A\b)
+    solution if b is in the column space of A (b is linear combination of the columns of A).
+\begin{itemize}
+    \item What do we mean by consistency of a linear system?
+\end{itemize}
+    There is either none, one or infinitely many solutions. 
+    A system of linear equations is said to be consistent if it has either one solution or infinitely many solutions; 
+    a system is inconsistent if it has no solution.
+\begin{itemize}
+    \item Explain what is echelon form and reduced echelon form.
+\end{itemize}
+    Both are triangular form.
+    Echelon Form is when the system is brought to upper triangular form, where all leading entries is the only non-zero in its column. (pivot in all rows except zero-rows.)
+    Reduced Echelon Form is when every leading entry is 1 with zeros above and below.
+\begin{itemize}
+    \item Explain the meaning of the following terms in relation to echelon forms: pivot, pivot positions, pivot columns.
+\end{itemize}
+    pivot: leading entry.
+    pivot position: A pivot position is a location that corresponds to a leading entry in the reduced echelon form of a matrix.
+    pivot column: A pivot column contains a pivot position. 
+\begin{itemize}
+    \item What is a linear combination of vectors, and what is the relation to Span{. . . }?
+\end{itemize}    
+    y = c1v1 + ··· + cpvp is a linear combination, where c is scalars and v is vectors.
+    the span{v1, v2, v3} is a subset of R3 spanned by v1, v2 and v3; That is all linear combinations of v1, v2 qnd v3
+    . see example 6 pp. 36.
+\begin{itemize}
+    \item How can we write a linear system as a matrix equation?
+\end{itemize}
+    see pp. 33.
+\begin{itemize}
+    \item Define independence/dependence in relation to vectors. 
+\end{itemize}
+    if two vectors can be expressed as linear combinations of each other they are linear dependent and vice versa.
+    in a matrix system Ax=0 has only the trivial solution if it is linear independent set.
+    if a set contains more vectors that entries in each vector, the set is linear dependent.
+\begin{itemize}
+    \item Explain how we sum, multiply and transpose matrices.
+\end{itemize}
+    sum : each corresponding element
+    mult: inner product of row and column.
+    tran: inner product of row to col and complex conjugate.
+\begin{itemize}
+    \item What do we mean by a matrix inverse?
+    \item When can we invert a matrix? Mention some of the criteria.
+\end{itemize}
+
+\subsection{Exercise 1 as MATLAB listing}
+\label{sec:Exercise 1 as MATLAB listing}
+\lstinputlisting{m-filer/mspr_old1.m}
+
+\subsection{Quiz 2}
+\label{sec:Quiz_1}
+
+\subsubsection{Quiz} 1: What do we mean by a transformation T from Rn to Rm, and what is the meaning of its domain, codomain and range?i
+        A transformation (or function or mapping) T from Rn to Rm is a rule that assigns to each vector x in Rn 
+        a vector T(x) in Rm. 
+        The set Rn is called the domain of T.
+        Rm is called the codomain of T.
+        For x in Rn, the vector T(x) in Rm is called the image of x (under the action of T ). 
+        The set of all images T (x) is called the range of T .
+
+\subsubsection{Quiz} 2: What is a linear transformation, and how is it related to a matrix transformation?
+        Every matrix transformation is a linear transformation.
+
+\subsubsection{Quiz} 3: Regarding mappings, what do we mean by the terms "onto" and "one- to-one"?
+        A mapping$ T : Rn \rightarrow Rm $ is said to be onto Rm if each b in Rm is the image of at least one x in Rn. 
+        A mapping$ T : Rn \rightarrow Rm $ is said to be one-to-one if each b in Rm is the image of at most one x in Rn.
+        (pp. 87)
+
+\subsubsection{Quiz} 4: Explain the principle behind the LU factorization.
+        Lower and upper trinagular - L:lower - U upper triangular row echelon form of the given matrix.
+
+\subsubsection{Quiz} 5: What does |A| = 0 imply?
+        A is not invertible.
+
+\subsubsection{Quiz} 6: How can we find the matrix inverse, using determinants?
+        $A^-1 = 1/det(A)*adj(A)$, where adj(A) is the adjugate of A. (the matrix of co-factors (pp. 204))
+
+\subsubsection{Quiz} 7: What is the relation between areas/volumes of parallelograms and parallelepipeds and determinants?
+        If A is a 2×2 matrix, the area of the parallelogram determined by the columns of A is |det A|. 
+        If A is a 3×3 matrix, the volume of the parallelepiped determined by the columns of A is |det A|.
+
+\subsubsection{Quiz} 8: Answer Q7, for linear transformations of parallelograms and parallelepipeds.
+
+\subsection{Exercise 2 as MATLAB listing}
+\label{sec:Exercise 2 as MATLAB listing}
+\lstinputlisting{m-filer/mspr_old2.m}
+
+\subsection{Quiz 3}
+\label{sec:Quiz_3}
+
+\subsubsection{Quiz} 1: What is eigenvalues and -vectors?
+        An eigenvector of an n×n matrix A is a nonzero vector x such that $Ax = \lambda x$ for some scalar $\lambda$. 
+        A scalar $\lambda$ is called an eigenvalue of A if there is a nontrivial solution x of $Ax = \lambda x$; 
+        such an x is called an eigenvector corresponding to $\lambda$. (pp.303)
+
+\subsubsection{Quiz} 2: How can we find the eigenvalues of a triangular matrix?
+        The eigenvalues of a triangular matrix are the entries on its main diagonal.
+
+\subsubsection{Quiz} 3: What is the characteristic equation?
+        Useful information about the eigenvalues of a square matrix A is encoded in $A-\lambda I$. 
+        This matrix fails to be invertible precisely when its determinant is zero. 
+        So the eigenvalues of A are the solutions of the equation $det(A-\lambda I)=0$, 
+        which is the characteristic equation.
+
+\subsubsection{Quiz} 4: What does it mean that a matrix is diagonalizable, and how can such a matrix be diagonalized?
+        A square matrix A is said to be diagonalizable if A is similar to a diagonal matrix, that is, 
+        if $A = PDP^{-1}$ for some invertible matrix P and some diagonal matrix D.
+        $A^3 = P  D^3 * P^{-1}$. D has the eigenvalues on the diagonal. P contains the eigenspace which spans Rn.
+
+
+\subsubsection{Quiz} 5: Mention a condition for a matrix to be diagonalizable?
+        An n×n matrix A is diagonalizable if and only if A has n linearly independent eigenvectors.
+        In fact,$ A = PDP -1$ , with $D$ a diagonal matrix, if and only if the columns of P are n linearly independent
+        eigenvectors of A. In this case, the diagonal entries of D are eigenvalues of A that correspond,
+        respectively, to the eigenvectors in P.
+        In other words, A is diagonalizable if and only if there are enough eigenvectors to
+        form a basis of Rn. We call such a basis an eigenvector basis.
+
+\subsubsection{Quiz} 6: What are the princples behind the (inverse) power methods?
+        $A^k = P * D^k * P^-1.$
+
+\subsubsection{Quiz} 7: Explain the following terms in relation to vectors: inner product, length, orthogonal, distance, projection.
+
+\subsubsection{Quiz} 8: What is the characteristics of orthogonal and orthonormal vector sets?
+
+\subsubsection{Quiz} 9: What is the general least squares problem? Mention some real-life examples of least squares problems.
+
+% The part of the label after the colon must match the file name. Otherwise,
+% conditional compilation based on task labels does NOT work.
+\label{task:20140926_jm0}
+\tags{courses, mspr}
+\authors{jm}
+%\files{}
+%\persons{}

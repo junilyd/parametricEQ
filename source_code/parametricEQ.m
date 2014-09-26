@@ -53,5 +53,6 @@ set(gcf,'Units', 'Normalized', 'OuterPosition', [0 0 1 1]);
 grid on; xlabel('\omega [\pi rad/sample]','fontsize', 16), ylabel('|H(e^{j\omega})|^2','fontsize', 16)
 title('Parametric EQ','fontsize', 18);
 if print == 1
+    cleanfigure();
     fig2tikz(gcf,'1','EQ with Gain from -20dB to + 20dB','matlab_test_first_gain','/Users/OSX/Documents/UNI/P7/courses/sound_processing/eq');
  end
