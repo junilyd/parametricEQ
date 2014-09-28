@@ -2,7 +2,7 @@
 \subsection{MSPR - First Exercises with MGC}
 \subsubsection{Quiz mm1}
 \label{sub:Quiz_mm1}
-The quiz is answered here.
+The quiz is answered in the following.
 \begin{itemize}
     \item What is Classification?
     \item What is a Prior?
@@ -13,8 +13,8 @@ The quiz is answered here.
 %
 \subsubsection{Classification}
 \label{sec:Classification}
-Classification is the act of assigning a class label to an object, a physical process or an event. For automated sorting we ahve to classify the objects by measuring the objects by mmeasuring some properties of the individual objects.\\ 
-Measurement vectors are processed to reveal information for the task. Models are made by describing the object.i
+Classification is the act of assigning a class label to an object, a physical process or an event. For automated sorting we have to classify the objects, by measuring some properties of the individual objects.\\ 
+Measurement vectors are processed to reveal information for the task. Models are made by describing the object.
 In some cases it is not trivial to define relevant classes.
 It is like sorting parameters in to classes.
 License Plate characters are easy. Sorting tomatoes into three different classes are not so easy.
@@ -31,30 +31,106 @@ Usually by using a large database.
 
 \subsection{How to Design a pattern classifier}
 Bayesian Theoretic Framework is a solid base for pattern classification. We have both a prior and a posterior.
-The starting point is a stochastic experiment defined by a set $\Omega = \{\omega_1,\cdots\omega_k\}$. We assume the classes are mutually exclusive.
-\subsection{Prior and Posterior}
+The starting point is a stochastic experiment defined by a set $\Omega = \{\omega_1,\cdots\omk\}$. We assume the classes are mutually exclusive.
+\subsubsection{Prior and Posterior}
 \label{sub:Prior_and_Posterior}
 \subsubsection{Prior}
 \label{sub:Prior}
-The probability $P(\omega_k)$ of having a class $\omega_k$ is called the \textit{prior probability}. It represents the knowledge we have about the object before measurements. With $K$ different classes that is,
+The probability $P(\omk)$ of having a class $\omk$ is called the \textit{prior probability}. It represents the knowledge we have about the object before measurements. With $K$ different classes that is,
 \begin{equation}
-    \sum_1^K P({\omega_k}) = 1
+    \sum_1^K P({\omk}) = 1
 \end{equation}
 \newline
-We produce a measurement vector called $\vecz$, with dimension $N$. These vary, even within the same class, due to noise and i.e. eccentricities of bolts are not fixed size and randomness due to other noise. Therefore, we have the \textit{conditional probability function} of $\vecz$, denoted as $p(\vecz|\omega_k)$.\\
-It is the density of $\vecz$ coming from a known class $\omega_k$\newline
+We produce a measurement vector called $\vecz$, with dimension $N$. These vary, even within the same class, due to noise and i.e. eccentricities of bolts are not fixed size and randomness due to other noise. Therefore, we have the \textit{conditional probability function} of $\vecz$, denoted as $p(\vecz|\omk)$.\textbf{lecture words}: \textit{``Specific distribution of of the data $\vecz$ for one class $\omk$''}.\newline
+
+It is the density of $\vecz$ coming from a known class $\omk$\newline
 If $\vecz$ comes from an object with an unknown class, it is denoted by $p(\vecz)$.
 \begin{equation}
-    p(\vecz) = \sum_1^K p(\vecz|\omega_k)P(\omega_k)
+    p(\vecz) = \sum_1^K p(\vecz|\omk)P(\omk)
 \end{equation}
-The decision function $\hat\omega(.)$ maps the measurements space onte the set of possible classes.
-That is
-$\mathbb{R}^2 \leftarrow \Omega$
-\info{fix mathbb as a macro for Real R}
-\change{Continue from example 2.2 pp. 17.}
+\textbf{lecture words}: \textit{``Collecting all possible measurements and plotting a scatter plot''}
+Due to the mutually exclusive of $\omk$, $p(\vecz)$ is unconditional.
+
+
+\subsubsection{The Decision Function}
+\label{sub:The Decision Function}
+The pattern classifier casts the measurement vector in the class that will be assigned to the object. This is done by the decision function.
+The decision function $\omh(.)$ maps the measurements space onto the set of possible classes.
+That is, for $\vecz$ $N$ dimensional,
+$\mathbb{R}^N \rightarrow \Omega$
+
+\subsubsection{Bayes Classifier}
+\label{sub:Bayes Classifier}
+An Erroneous assignment of a class to an object leads to an impairment of its usefulness.
+A \textit{Bayes Classifier} is a pattern classifier that is based on the following two:
+\begin{itemize}
+    \item The loss of value, when an object is erroneously classified, can be quantified as a cost.
+    \item The expectation of the cost is acceptable for optimization criterion.
+\end{itemize}
+By meeting these two, the development of a optimal pattern classification is straight forward, if you have good estimates of the densities of the classes.
+\subsubsection{The Cost Function}
+\label{sub:The Cost Function}
+The loss of value is quantified by a \textit{Cost Function} $\cost$. The function $C(.|.)$: $\Omega$ x $\Omega\rightarrow\mathbb{R}$
+Expressing the cost is when the class $\omh$ is assigned to an object when the true class is $\omk$.
+\subsubsection{Posterior Probability and Minmum Risk Classification}
+\label{sub:Posterior Probability}
+Bayes Theorem of conditional probabilities says,
+\begin{equation}
+    P(\omk|\vecz) = \frac{p(\vecz|\omk)P(\omk)}{p(\vecz)}
+\end{equation}
+When we assign $\omh$ to $\vecz$, from the object with true class $\omk$, the cost $\cost$ is involved.
+The posterior prob. of having such an object is: $P(\omh|\vecz)$.
+Therefore, the expectation of the cost is, the conditional risk:
+\begin{equation}
+    R(\omh) = \mathbb{E}[\cost|\vecz] = \sum_{k=1}^K \cost P(\omh|\vecz)
+\end{equation}
+Which gives us the overall risk, over the full measurement space:
+\begin{equation}
+    R = \mathbb{E}[R(\omh(\vecz)|\vecz)] = \int_{\vecz} R(\omh(\vecz)|\vecz)p(\vecz) d\vecz
+\end{equation}
+%
+%
+This is the size we want to minimize:
+\begin{align}
+    \omh_\texttt{BAYES}(\vecx)  & = \argmin_{\omega\in\Omega}\{R(\omega|\vecz)\}
+\end{align}
+Which is described for $\vecz$ as,
+\begin{align*}
+    \omh_\texttt{BAYES}(\vecz)  & = \argmin_{\omega\in\Omega}  \left\{ \sum_{k=1}^K \costom P(\omk|\vecz)  \right\} \\ 
+                                & = \argmin_{ \omega\in\Omega} \left\{ \sum_{k=1}^K \costom\frac{p(\vecz|\omk)P(\omk)}{p(\vecz)}  \right\} \\
+                                & = \argmin_{ \omega\in\Omega} \left\{ \sum_{k=1}^K \costom p(\vecz|\omk)P(\omk)  \right\}
+\end{align*}
+This is minimum risk classification or Bayesian classification.
+
+\subsection{Normal distributed Measurements, linear and quadratic classifiers}
+\label{sub:Normal distributed Measurements, ldc() and qdc()}
+\begin{itemize}
+    \item What quantities must be known for the quadratic and linear classifiers to work, based on the multivariate normal distribution?
+\end{itemize}
+Since the conditional probability distributions are modelled as normal, the quantities of the expectation vector $\vecmu_k$  and covariance matrix $\vecC_k$, must be known, see pp. 26.
+\newline
+A quadratic classifier has a quadratic decision function. The boundaries are then pieces of quadratic hyper-surfaces. The boundaires are expressed in eq(2.23) pp. 27.
+\newline
+\subsection{Class inpendent covarince matrices}
+\label{sub:Class inpendent covarince matrices}
+If you assume no correlation between the classes - covariance matrices do not depend on the classes i.e. $\vecC_k = \vecC$ for all $\omk \in \Omega$. This is when $\vecz = \vecmu_k + \mathbf{n}$. Then the decision function is linear see eq (2.24) pp 28.
+
+\subsection{Class inpendent expectation vectors}
+\begin{itemize}
+    \item Under what condition is it possible to classify classes with the same mean?
+\end{itemize}
+When the expectation vectors do not depend on the class: $\vecmu_k = \vecmu$, for all $k$. The central parts of the conditional pdf, overlap. The decsion can be seen in eq (2.29) pp.31.
+I belive this can be used with the nmc() function in PRTools (nearest mean classifier). 
+
+
+\todo[inline]{Do exercise 2.4 and 2.5}
+\todo[inline]{Insert the subplot of bayes\_classification\_21\_22 and describe it}
+\todo[inline]{understand gaussm()}
 
 
 
+\input img/pr_pdf_and_contour_2d.tex
+\input img/pr_decision_boundaries.tex
 
 
 

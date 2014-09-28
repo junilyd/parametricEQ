@@ -46,13 +46,14 @@
     .jpg,.mps,.jpeg,.jbig2,.jb2,.JPG,.JPEG,.JBIG2,.JB2}
 % Create graphics using PGF/TikZ
 \usepackage{tikz,pgfplots}
+\usetikzlibrary{plotmarks}
 % \usetikzlibrary{matrix,backgrounds}
-\usetikzlibrary{external}
+% usetikzlibrary{external}
 % \tikzexternalize[
   % mode=convert with system call,% or graphics if exists, no graphics, only graphics
   % figure list=true]
 % \tikzexternaldisable
-\tikzexternalize[prefix=img/tikz/]
+% \tikzexternalize[prefix=img/tikz/]
 \tikzset{
     >=latex,
     font=\footnotesize,
@@ -223,12 +224,12 @@
   textwidth=\marginparwidth, %set the width of the todonotes
   textsize=scriptsize, %size of the text in the todonotes
 ]{todonotes}
-\makeatletter
-\renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
-\makeatother
-\makeatletter
-\renewcommand{\missingfigure}[2][]{\tikzexternaldisable\@missingfigure[#1]{#2}\tikzexternalenable}
-\makeatother
+% \makeatletter
+% \renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
+% \makeatother
+% \makeatletter
+% \renewcommand{\missingfigure}[2][]{\tikzexternaldisable\@missingfigure[#1]{#2}\tikzexternalenable}
+% \makeatother
 
 \usepackage{lipsum}                     % Dummytext
 \usepackage{xargs}                      % Use more than one optional parameter in a new commands
