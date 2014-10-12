@@ -12,9 +12,9 @@ subplot(322); scatterd(z);
 plotc(w); title('Decision Boundaries');
 
 %% Estimate a Gaussian per class.
-for num_class = 1:4
-    w=gaussm(seldat(z,num_class),1);                
-    subplot(323); scatterd(z); plotm(w,2,[0.1 0.1 0.5 1.0]); hold on;
+for class = 1:4
+    w=gaussm(seldat(z,class),1);                
+    subplot(323); scatterd(z); plotm(w,6,[0.1 0.1 0.5 1.0]); hold on;
     subplot(324); scatterd(z); plotc(w);hold on;
 end
 subplot(323);title('PFDs of the Measurements (one gauss pr class)');
